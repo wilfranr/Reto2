@@ -22,5 +22,19 @@ public class PrecioTotal {
 
         this.computadores = computadores;
     }
+    //Metodos
+    public void mostrarTotales() {
+        for (PC el: computadores){
+            if (el instanceof PC) {
+                totalPCs += el.calcularPrecio();
+            }
+            if (el instanceof PCLaptops) {
+                totalPCs += el.calcularPrecio();
+            }
+            if (el instanceof PCDesktop) {
+                totalPCs += el.calcularPrecio();
+            }
+        }
+    }
     
 }
