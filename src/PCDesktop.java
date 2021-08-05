@@ -1,4 +1,4 @@
-public class PCDesktop extends PC {
+public class PCDesktop extends Computador {
 
     public final static int KEYBOARD = 160000;
     public final static int CAMERA = 80000;

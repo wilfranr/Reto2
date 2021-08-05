@@ -2,16 +2,16 @@
 public class PrecioTotal {
 
     //Atributos
-    private double totalPCs;
+    private double totalComputadores;
     private double totalLaptops;
     private double totalDesktops;
     
-    //Lista de pcs
-    public PC[] computadores;
+    //Lista de Computadors
+    public Computador[] computadores;
 
-    public PrecioTotal(PC[] computadores) {
+    public PrecioTotal(Computador[] computadores) {
         this.computadores = computadores;
-        this.totalPCs = 0;
+        this.totalComputadores = 0;
         this.totalLaptops = 0;
         this.totalDesktops = 0;
 
@@ -19,7 +19,7 @@ public class PrecioTotal {
 
     //Constructores
     public PrecioTotal () {
-        this.totalPCs = 0;
+        this.totalComputadores = 0;
         this.totalLaptops = 0;
         this.totalDesktops = 0;
     }
@@ -28,14 +28,14 @@ public class PrecioTotal {
     //Metodos
     public void mostrarTotales() {
         
-        this.totalPCs = 0;
+        this.totalComputadores = 0;
         this.totalLaptops = 0;
         this.totalDesktops = 0;
     
 
-        for (PC i: computadores){
-            if (i instanceof PC) {
-                totalPCs += i.calcularPrecio();
+        for (Computador i: computadores){
+            if (i instanceof Computador) {
+                totalComputadores += i.calcularPrecio();
             }
             if (i instanceof PCLaptop) {
                 totalLaptops += i.calcularPrecio();
@@ -45,10 +45,9 @@ public class PrecioTotal {
             }
             
         }
-        System.out.println("El precio total de los computadores es de "+totalPCs);
-        System.out.println("La suma del precio de los PCLaptops es de "+totalLaptops);
-        System.out.println("La suma del precio de los PCDesktops es de "+totalDesktops);
+        System.out.println("El precio total de los computadores es de "+Math.round(totalComputadores));
+        System.out.println("La suma del precio de los Laptops es de "+Math.round(totalLaptops));
+        System.out.println("La suma del precio de los Desktops es de "+Math.round(totalDesktops));
     }
-    
     
 }

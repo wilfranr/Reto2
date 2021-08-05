@@ -1,4 +1,4 @@
-public class PCLaptop extends PC {
+public class PCLaptop extends Computador {
 
     public final static int EXTRA_BATERY = 100000;
     public final static int EXTRA_CHARGER = 80000;

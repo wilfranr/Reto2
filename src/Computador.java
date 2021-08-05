@@ -1,4 +1,4 @@
-public class PC {
+public class Computador {
     // Constantes
     public static final double PRECIO_BASE = 1500000;
     public static final double PRECIO_MOUSE = 60000;
@@ -10,19 +10,19 @@ public class PC {
     public double headphone;
 
     // Constructores
-    public PC() {
+    public Computador() {
         this.precioBase = PRECIO_BASE;
         this.mouse = PRECIO_MOUSE;
         this.headphone = PRECIO_HEADPHONE;
     }
 
-    public PC(double precioBase, double headphone) {
+    public Computador(double precioBase, double headphone) {
         this.mouse = PRECIO_MOUSE;
         this.precioBase = precioBase;
         this.headphone = headphone;
     }
 
-    public PC(double precioBase, double mouse, double headphone) {
+    public Computador(double precioBase, double mouse, double headphone) {
         this.precioBase = precioBase;
         this.mouse = mouse;
         this.headphone = headphone;
