@@ -28,13 +28,18 @@ public class PrecioTotal {
             if (el instanceof PC) {
                 totalPCs += el.calcularPrecio();
             }
-            if (el instanceof PCLaptops) {
+            if (el instanceof PCLaptop) {
                 totalPCs += el.calcularPrecio();
             }
             if (el instanceof PCDesktop) {
                 totalPCs += el.calcularPrecio();
             }
+            
         }
+        System.out.println("El precio total de los computadores es de "+totalPCs);
+        System.out.println("La suma del precio de los PCLaptops es de "+totalLaptops);
+        System.out.println("La suma del precio de los PCDesktops es de "+totalDesktops);
     }
+    
     
 }
