@@ -2,37 +2,46 @@
 public class PrecioTotal {
 
     //Atributos
-    private Double totalPCs;
-    private Double totalLaptops;
-    private Double totalDesktops;
+    private double totalPCs;
+    private double totalLaptops;
+    private double totalDesktops;
     
-    private PC computadores[];
+    //Lista de pcs
+    public PC[] computadores;
+
+    public PrecioTotal(PC[] computadores) {
+        this.computadores = computadores;
+        this.totalPCs = 0;
+        this.totalLaptops = 0;
+        this.totalDesktops = 0;
+
+    }
 
     //Constructores
     public PrecioTotal () {
-        this.totalPCs = 0.0;
-        this.totalLaptops = 0.0;
-        this.totalDesktops = 0.0;
+        this.totalPCs = 0;
+        this.totalLaptops = 0;
+        this.totalDesktops = 0;
     }
 
-    public PrecioTotal(PC computadores[]) {
-        this.totalPCs = 0.0;
-        this.totalLaptops = 0.0;
-        this.totalDesktops = 0.0;
 
-        this.computadores = computadores;
-    }
     //Metodos
     public void mostrarTotales() {
-        for (PC el: computadores){
-            if (el instanceof PC) {
-                totalPCs += el.calcularPrecio();
+        
+        this.totalPCs = 0;
+        this.totalLaptops = 0;
+        this.totalDesktops = 0;
+    
+
+        for (PC i: computadores){
+            if (i instanceof PC) {
+                totalPCs += i.calcularPrecio();
             }
-            if (el instanceof PCLaptop) {
-                totalPCs += el.calcularPrecio();
+            if (i instanceof PCLaptop) {
+                totalLaptops += i.calcularPrecio();
             }
-            if (el instanceof PCDesktop) {
-                totalPCs += el.calcularPrecio();
+            if (i instanceof PCDesktop) {
+                totalDesktops += i.calcularPrecio();
             }
             
         }

@@ -1,0 +1,180 @@
+
+public class PrecioTotal {
+
+    //Atributos
+    private double totalPCs;
+    private double totalLaptops;
+    private double totalDesktops;
+    
+    //Lista de pcs
+    private PC computadores[];
+
+    //Constructores
+    public PrecioTotal () {
+        this.totalPCs = 0;
+        this.totalLaptops = 0;
+        this.totalDesktops = 0;
+    }
+
+    public PrecioTotal(PC computadores[]) {
+        this.totalPCs = 0;
+        this.totalLaptops = 0;
+        this.totalDesktops = 0;
+
+        this.computadores = computadores;
+    }
+    //Metodos
+    public void mostrarTotales() {
+        
+        this.totalPCs = 0;
+        this.totalLaptops = 0;
+        this.totalDesktops = 0;
+    
+
+        for (PC i: computadores){
+            if (i instanceof PC) {
+                totalPCs += i.calcularPrecio();
+            }
+            if (i instanceof PCLaptop) {
+                totalLaptops += i.calcularPrecio();
+            }
+            if (i instanceof PCDesktop) {
+                totalDesktops += i.calcularPrecio();
+            }
+            
+        }
+        System.out.println("El precio total de los computadores es de "+totalPCs);
+        System.out.println("La suma del precio de los PCLaptops es de "+totalLaptops);
+        System.out.println("La suma del precio de los PCDesktops es de "+totalDesktops);
+    }
+    
+    
+}
+
+public class PC {
+    // Constantes
+    public static final double PRECIO_BASE = 1500000;
+    public static final double PRECIO_MOUSE = 60000;
+    public static final double PRECIO_HEADPHONE = 110000;
+
+    // Atributos
+    public double precioBase;
+    public double mouse;
+    public double headphone;
+
+    // Constructores
+    public PC() {
+        this.precioBase = PRECIO_BASE;
+        this.mouse = PRECIO_MOUSE;
+        this.headphone = PRECIO_HEADPHONE;
+    }
+
+    public PC(double precioBase, double headphone) {
+        this.mouse = PRECIO_MOUSE;
+        this.precioBase = precioBase;
+        this.headphone = headphone;
+    }
+
+    public PC(double precioBase, double mouse, double headphone) {
+        this.precioBase = precioBase;
+        this.mouse = mouse;
+        this.headphone = headphone;
+    }
+    
+
+    public double calcularPrecio() {
+        double precioFinal;
+
+        return precioFinal = precioBase + mouse + headphone;
+    }
+
+}
+
+public class PCLaptop extends PC {
+
+    public final static int EXTRA_BATERY = 100000;
+    public final static int EXTRA_CHARGER = 80000;
+
+    public int extraBatery;
+    public int extraCharger;
+
+    public PCLaptop() {
+        super();
+        this.extraBatery = EXTRA_BATERY;
+        this.extraCharger = EXTRA_CHARGER;
+    }
+
+    public PCLaptop(int extraBatery) {
+        this.extraCharger = EXTRA_CHARGER;
+        this.extraBatery = extraBatery;
+    }
+
+    public PCLaptop(int extraBatery, int extraCharger) {
+        this.extraBatery = extraBatery;
+        this.extraCharger = extraCharger;
+    }
+
+    public PCLaptop(double precioBase, double headphone, int extraBatery, int extraCharger) {
+        super(precioBase, headphone);
+        this.extraBatery = extraBatery;
+        this.extraCharger = extraCharger;
+    }
+
+    public PCLaptop(double precioBase, double mouse, double headphone) {
+        super(precioBase, mouse, headphone);
+    }
+
+    public PCLaptop(double precioBase, double mouse, double headphone, int extraBatery, int extraCharger) {
+        super(precioBase, mouse, headphone);
+        this.extraBatery = extraBatery;
+        this.extraCharger = extraCharger;
+    }
+    @Override
+    public double calcularPrecio() {
+        
+        return super.calcularPrecio() + extraBatery + extraCharger;
+
+    }
+    
+
+}
+
+public class PCDesktop extends PC {
+
+    public final static int KEYBOARD = 160000;
+    public final static int CAMERA = 80000;
+
+    public int keyboard;
+    public int camera;
+    
+    public PCDesktop() {
+        super();
+        this.keyboard = KEYBOARD;
+        this.camera = CAMERA;
+    }
+    
+    public PCDesktop(int camera) {
+        this.keyboard = KEYBOARD;
+        this.camera = camera;
+    }
+
+    public PCDesktop(double precioBase, double mouse, double headphone) {
+        super(precioBase, mouse, headphone);
+        this.keyboard = KEYBOARD;
+        this.camera = CAMERA;
+    }
+
+    public PCDesktop(int keyboard, int camera) {
+        this.keyboard = keyboard;
+        this.camera = camera;
+    }
+    @Override
+    public double calcularPrecio() {
+        
+        return super.calcularPrecio() + keyboard + camera;
+
+    }
+
+    
+    
+}

@@ -1,31 +1,37 @@
 public class PCDesktop extends PC {
 
-    private static final Integer KEYBOARD = 160000;
-    private static final Integer CAMERA = 80000;
+    public final static int KEYBOARD = 160000;
+    public final static int CAMERA = 80000;
 
-    private Integer keyboard;
-    private Integer camera;
+    public int keyboard;
+    public int camera;
     
-    public PCDesktop(int i, int j) {
+    public PCDesktop() {
         super();
         this.keyboard = KEYBOARD;
         this.camera = CAMERA;
     }
-    public PCDesktop(Double precioBase, Double mouse, Double headphone) {
+    
+    public PCDesktop(int camera) {
+        this.keyboard = KEYBOARD;
+        this.camera = camera;
+    }
+
+    public PCDesktop(double precioBase, double mouse, double headphone) {
         super(precioBase, mouse, headphone);
         this.keyboard = KEYBOARD;
         this.camera = CAMERA;
     }
 
-    public PCDesktop(int i) {
+    public PCDesktop(int keyboard, int camera) {
+        this.keyboard = keyboard;
+        this.camera = camera;
     }
+    @Override
     public double calcularPrecio() {
-        double precioBase = 1850000;
-        Integer keyboard = 30000;
-        Integer camera = 30000;
+        
+        return super.calcularPrecio() + keyboard + camera;
 
-        double precioFinal = precioBase+keyboard+camera;
-        return precioFinal;
     }
 
     

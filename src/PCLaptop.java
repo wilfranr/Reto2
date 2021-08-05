@@ -1,34 +1,48 @@
 public class PCLaptop extends PC {
 
-    private static final Integer EXTRA_BATTERY = 100000;
-    private static final Integer EXTRA_CHARGE = 80000;
+    public final static int EXTRA_BATERY = 100000;
+    public final static int EXTRA_CHARGER = 80000;
 
-    private Integer extraBattery;
-    private Integer extraCharge;
-    
-    public PCLaptop(int i, int j) {
+    public int extraBatery;
+    public int extraCharger;
+
+    public PCLaptop() {
         super();
-        this.extraBattery = EXTRA_BATTERY;
-        this.extraCharge = EXTRA_CHARGE;
+        this.extraBatery = EXTRA_BATERY;
+        this.extraCharger = EXTRA_CHARGER;
     }
-    public PCLaptop(Double precioBase, Double mouse, Double headphone) {
+
+    public PCLaptop(int extraBatery) {
+        this.extraCharger = EXTRA_CHARGER;
+        this.extraBatery = extraBatery;
+    }
+
+    public PCLaptop(int extraBatery, int extraCharger) {
+        this.extraBatery = extraBatery;
+        this.extraCharger = extraCharger;
+    }
+
+    public PCLaptop(double precioBase, double headphone, int extraBatery, int extraCharger) {
+        super(precioBase, headphone);
+        this.extraBatery = extraBatery;
+        this.extraCharger = extraCharger;
+    }
+
+    public PCLaptop(double precioBase, double mouse, double headphone) {
         super(precioBase, mouse, headphone);
-        this.extraBattery = EXTRA_BATTERY;
-        this.extraCharge = EXTRA_CHARGE;
     }
 
-    public PCLaptop(int i) {
+    public PCLaptop(double precioBase, double mouse, double headphone, int extraBatery, int extraCharger) {
+        super(precioBase, mouse, headphone);
+        this.extraBatery = extraBatery;
+        this.extraCharger = extraCharger;
     }
+    @Override
     public double calcularPrecio() {
-        double precioBase = 0;
-        Integer extraBattery = 0;
-        Integer extraCharge = 0;
+        
+        return super.calcularPrecio() + extraBatery + extraCharger;
 
-        double precioFinal = precioBase+extraBattery+extraCharge;
-        return precioFinal;
     }
+    
 
-    
-    
 }
-
